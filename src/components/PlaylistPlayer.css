@@ -1,0 +1,178 @@
+/* Playlist Player Styles */
+.playlist-player {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fullscreen Prompt Overlay */
+.fullscreen-prompt-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.fullscreen-prompt {
+  text-align: center;
+  color: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 2px solid rgba(99, 102, 241, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.fullscreen-prompt-icon {
+  margin-bottom: 20px;
+  color: #6366f1;
+}
+
+.fullscreen-prompt h2 {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.fullscreen-prompt p {
+  font-size: 16px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.player-header {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.player-playlist-name {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.player-item-info {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.player-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.player-control-btn,
+.player-close-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.player-control-btn:hover,
+.player-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.player-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.player-media {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.player-placeholder {
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+}
+
+.player-footer {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.player-progress {
+  background: rgba(255, 255, 255, 0.1);
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.player-progress-bar {
+  height: 100%;
+  background: #6366f1;
+  transition: width 0.3s ease;
+}
+
+.player-status {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.playlist-player {
+  animation: fadeIn 0.3s ease-in-out;
+}

@@ -1,0 +1,457 @@
+/* ========== Devices Styles ========== */
+
+.devices-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.devices-stats {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .devices-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .devices-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.devices-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .devices-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .devices-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.device-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-gray-200);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base);
+}
+
+.device-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.device-header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.device-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+}
+
+.device-info {
+  flex: 1;
+}
+
+.device-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+.device-location {
+  font-size: 0.875rem;
+  color: var(--color-gray-500);
+  margin-top: 0.25rem;
+}
+
+.device-status {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.device-status.online {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.device-status.offline {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.device-status.warning {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.device-playing {
+  background-color: var(--color-gray-50);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem;
+}
+
+.device-playing-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.device-playing-media {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-900);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.device-playing-playlist {
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+  margin-top: 0.25rem;
+}
+
+.device-body {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.device-metric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+.device-metric-label {
+  color: var(--color-gray-600);
+}
+
+.device-metric-value {
+  font-weight: 500;
+  color: var(--color-gray-900);
+}
+
+.device-metric-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.device-metric-progress {
+  width: 6rem;
+}
+
+.device-sync-time {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.device-footer {
+  padding: var(--spacing-md);
+  background-color: var(--color-gray-50);
+  border-top: 1px solid var(--color-gray-200);
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.device-footer .btn {
+  flex: 1;
+  font-size: 0.875rem;
+}
+
+.device-footer .btn:last-child {
+  flex: 0;
+}
+
+/* Device Details Modal */
+.device-details-modal {
+  max-width: 48rem;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.device-details-header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-white);
+}
+
+.device-details-title {
+  flex: 1;
+}
+
+.device-details-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gray-900);
+}
+
+.device-details-location {
+  font-size: 0.875rem;
+  color: var(--color-gray-500);
+  margin-top: 0.25rem;
+}
+
+.device-details-close {
+  padding: var(--spacing-sm);
+  background: transparent;
+  border-radius: var(--radius-lg);
+  transition: background-color var(--transition-base);
+}
+
+.device-details-close:hover {
+  background-color: var(--color-gray-100);
+}
+
+.device-details-body {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.detail-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+  margin-bottom: 0.75rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.detail-item {
+  background-color: var(--color-gray-50);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+}
+
+.detail-item-label {
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+  margin-bottom: 0.25rem;
+}
+
+.detail-item-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-900);
+}
+
+.playback-info {
+  background-color: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+}
+
+.playback-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 0.875rem;
+  color: #4338ca;
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+.playback-media {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #312e81;
+}
+
+.playback-playlist {
+  font-size: 0.875rem;
+  color: #4338ca;
+  margin-top: 0.25rem;
+}
+
+.system-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.metric-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  background-color: var(--color-gray-50);
+  border-radius: var(--radius-lg);
+}
+
+.metric-card-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.metric-card-icon {
+  color: var(--color-gray-600);
+}
+
+.metric-card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-card-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-900);
+}
+
+.metric-card-subtitle {
+  font-size: 0.75rem;
+  color: var(--color-gray-500);
+}
+
+.metric-card-value {
+  text-align: right;
+}
+
+.metric-card-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gray-900);
+}
+
+.metric-card-number.warning {
+  color: var(--color-warning);
+}
+
+.metric-card-number.danger {
+  color: var(--color-danger);
+}
+
+.metric-card-bar {
+  width: 8rem;
+  margin-top: var(--spacing-sm);
+}
+
+.remote-controls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.remote-control-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border: 2px solid;
+  border-radius: var(--radius-lg);
+  background-color: transparent;
+  transition: all var(--transition-base);
+}
+
+.remote-control-btn.sync {
+  border-color: #c7d2fe;
+  background-color: #eef2ff;
+}
+
+.remote-control-btn.sync:hover {
+  background-color: #e0e7ff;
+}
+
+.remote-control-btn.sync svg {
+  color: var(--color-primary);
+}
+
+.remote-control-btn.sync span {
+  color: #312e81;
+}
+
+.remote-control-btn.restart {
+  border-color: #fed7aa;
+  background-color: #ffedd5;
+}
+
+.remote-control-btn.restart:hover {
+  background-color: #fed7aa;
+}
+
+.remote-control-btn.restart svg {
+  color: var(--color-warning);
+}
+
+.remote-control-btn.restart span {
+  color: #92400e;
+}
+
+.remote-control-btn.shutdown {
+  border-color: #fecaca;
+  background-color: #fee2e2;
+}
+
+.remote-control-btn.shutdown:hover {
+  background-color: #fecaca;
+}
+
+.remote-control-btn.shutdown svg {
+  color: var(--color-danger);
+}
+
+.remote-control-btn.shutdown span {
+  color: #991b1b;
+}
+
+.remote-control-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}

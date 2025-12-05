@@ -1,0 +1,81 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "internship": {
+      "users": {
+        "$uid": {
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid"
+        }
+      },
+      "applications": {
+        "$uid": {
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid",
+          "$applicationId": {
+            ".read": "$uid === auth.uid",
+            ".write": "$uid === auth.uid"
+          }
+        },
+        ".read": "auth.token.admin === true"
+      }
+    },
+    "status": {
+      "check": {
+        ".read": true,
+        ".write": false
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null && ($uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'admin')",
+        ".write": "auth != null && ($uid === auth.uid || root.child('users').child(auth.uid).child('role').val() === 'admin')"
+      }
+    },
+    "criminals": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "crimes": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "test": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "Animal": {
+      ".read": true,
+      ".write": true
+    },
+    "Blind": {
+      ".read": true,
+      ".write": true,
+      "Buttons": {
+        ".read": true,
+        ".write": true
+      },
+      "motor": {
+        ".read": true,
+        ".write": true
+      }
+    },
+    "dashboard": {
+      ".read": true,
+      ".write": true
+    },
+    "media": {
+      ".read": true,
+      ".write": true
+    },
+    "playlists": {
+      ".read": true,
+      ".write": true
+    },
+    "devices": {
+      ".read": true,
+      ".write": true
+    }
+  }
+}
