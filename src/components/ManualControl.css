@@ -1,0 +1,652 @@
+/* ManualControl.css */
+.manual-control-panel {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.manual-control-container {
+    background: var(--bg-card);
+    backdrop-filter: var(--blur-glass);
+    border: var(--border-glass);
+    border-radius: var(--border-radius-large);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-strong);
+    transition: var(--transition-smooth);
+}
+
+.control-section h2 {
+    color: var(--text-primary);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.control-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary-gradient);
+    border-radius: 1.5px;
+}
+
+.control-description {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Manual Movement Controls Grid */
+.manual-movement-controls {
+    display: grid;
+    grid-template-areas:
+        ". forward ."
+        "left stop right"
+        ". backward .";
+    gap: 1.5rem;
+    margin: 2rem auto;
+    max-width: 400px;
+    justify-items: center;
+    align-items: center;
+    padding: 2rem;
+    background: var(--bg-glass);
+    border-radius: var(--border-radius-large);
+    border: var(--border-glass);
+    backdrop-filter: var(--blur-glass);
+}
+
+/* Button positioning */
+.btn-forward {
+    grid-area: forward;
+}
+
+.btn-left {
+    grid-area: left;
+}
+
+.btn-right {
+    grid-area: right;
+}
+
+.btn-backward {
+    grid-area: backward;
+}
+
+.btn-stop {
+    grid-area: stop;
+}
+
+/* Direction Button Styles */
+.direction-btn {
+    width: 100px;
+    height: 100px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    font-family: inherit;
+    font-weight: 600;
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    background: var(--button-primary);
+    color: var(--text-primary);
+}
+
+.direction-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.direction-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: var(--shadow-strong);
+}
+
+.direction-btn:hover::before {
+    left: 100%;
+}
+
+.direction-btn:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Button Icons and Labels */
+.btn-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.btn-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-command {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+}
+
+/* Specific Button Colors */
+.btn-forward {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+}
+
+.btn-left {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+}
+
+.btn-right {
+    background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+}
+
+.btn-backward {
+    background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%);
+}
+
+.btn-stop {
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    width: 80px;
+    height: 80px;
+}
+
+/* Pick and Place Controls */
+.pick-place-controls {
+    margin: 2rem auto;
+    max-width: 500px;
+    text-align: center;
+}
+
+.pick-place-controls h3 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.pick-place-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    min-width: 140px;
+    height: 60px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease;
+}
+
+.action-btn:hover::before {
+    left: 100%;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-pick {
+    background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+}
+
+.btn-pick:hover {
+    background: linear-gradient(135deg, #00acc1 0%, #00838f 100%);
+}
+
+.btn-place {
+    background: linear-gradient(135deg, #ff5722 0%, #e64a19 100%);
+}
+
+.btn-place:hover {
+    background: linear-gradient(135deg, #f4511e 0%, #d84315 100%);
+}
+
+/* Command Status */
+.command-status {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.status-indicator {
+    background: var(--bg-glass);
+    border: var(--border-glass);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    backdrop-filter: var(--blur-glass);
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.status-indicator h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.status-details {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.command-sent {
+    color: var(--text-accent);
+    font-size: 1rem;
+}
+
+.command-timestamp {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Control Info Cards */
+.control-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    background: var(--bg-glass);
+    border: var(--border-glass);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    backdrop-filter: var(--blur-glass);
+}
+
+.info-card h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-card li {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.info-card li::before {
+    content: '•';
+    color: var(--text-accent);
+    position: absolute;
+    left: 0;
+}
+
+.info-card li strong {
+    color: var(--text-primary);
+}
+
+/* Enhanced Responsive Design - Mobile First */
+
+/* Mobile First (320px to 480px) */
+@media (max-width: 480px) {
+    .manual-control-panel {
+        padding: 0.75rem;
+        width: 100%;
+        margin: 0;
+    }
+
+    .manual-control-container {
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        margin: 0;
+    }
+    
+    .control-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .control-section h2::after {
+        width: 60px;
+        height: 2px;
+    }
+    
+    .control-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .manual-movement-controls {
+        max-width: 260px;
+        gap: 0.75rem;
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .direction-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 15px;
+    }
+
+    .btn-stop {
+        width: 55px;
+        height: 55px;
+        border-radius: 12px;
+    }
+
+    .btn-icon {
+        font-size: 1.1rem;
+    }
+
+    .btn-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+    }
+
+    .btn-command {
+        font-size: 0.55rem;
+    }
+
+    .control-info {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
+
+    .pick-place-controls {
+        margin: 1.5rem auto;
+        max-width: 100%;
+    }
+
+    .pick-place-controls h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .pick-place-buttons {
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .action-btn {
+        min-width: 120px;
+        height: 50px;
+        font-size: 1rem;
+    }
+
+    .status-details {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .info-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .info-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .info-card ul {
+        font-size: 0.9rem;
+    }
+    
+    .last-command {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .command-display {
+        font-size: 0.9rem;
+    }
+}
+
+/* Small Mobile (up to 375px) */
+@media (max-width: 375px) {
+    .manual-movement-controls {
+        max-width: 240px;
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+
+    .direction-btn {
+        width: 60px;
+        height: 60px;
+    }
+
+    .btn-stop {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .btn-icon {
+        font-size: 1rem;
+    }
+
+    .btn-label {
+        font-size: 0.65rem;
+    }
+
+    .btn-command {
+        font-size: 0.5rem;
+    }
+}
+
+/* Tablet Styles (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .manual-control-panel {
+        padding: 1.5rem;
+    }
+
+    .manual-control-container {
+        padding: 1.5rem;
+    }
+
+    .manual-movement-controls {
+        max-width: 320px;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .direction-btn {
+        width: 80px;
+        height: 80px;
+    }
+
+    .btn-stop {
+        width: 70px;
+        height: 70px;
+    }
+
+    .btn-icon {
+        font-size: 1.2rem;
+    }
+
+    .btn-label {
+        font-size: 0.8rem;
+    }
+
+    .btn-command {
+        font-size: 0.6rem;
+    }
+
+    .control-info {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .status-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Original mobile styles (768px) - Enhanced */
+@media (max-width: 768px) {
+    .manual-movement-controls {
+        max-width: 320px;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .direction-btn {
+        width: 80px;
+        height: 80px;
+        transition: all 0.2s ease;
+    }
+    
+    .direction-btn:active {
+        transform: scale(0.95);
+    }
+
+    .btn-stop {
+        width: 70px;
+        height: 70px;
+    }
+
+    .btn-icon {
+        font-size: 1.2rem;
+    }
+
+    .btn-label {
+        font-size: 0.8rem;
+    }
+
+    .btn-command {
+        font-size: 0.6rem;
+    }
+
+    .control-info {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .status-details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    /* Better touch targets for mobile */
+    .direction-btn,
+    .btn-stop {
+        touch-action: manipulation;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+}
+
+/* Landscape Mobile Styles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .manual-control-panel {
+        padding: 1rem;
+    }
+    
+    .manual-control-container {
+        padding: 1rem;
+    }
+    
+    .control-section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .control-description {
+        margin-bottom: 1rem;
+    }
+    
+    .manual-movement-controls {
+        max-width: 280px;
+        gap: 0.75rem;
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+}
+
+/* Original styles (keeping for compatibility) */
+
+.btn-idle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

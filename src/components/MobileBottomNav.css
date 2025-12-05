@@ -1,0 +1,90 @@
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 30, 0.95);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.5rem 0;
+    z-index: 1000;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 480px) {
+    .mobile-bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    /* Add bottom padding to main content to account for bottom nav */
+    .main-content {
+        padding-bottom: 80px;
+    }
+}
+
+.mobile-bottom-nav .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #8892b0;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    min-width: 60px;
+    flex: 1;
+    max-width: 80px;
+}
+
+.mobile-bottom-nav .nav-item:active {
+    transform: scale(0.95);
+}
+
+.mobile-bottom-nav .nav-item.active {
+    color: #64ffda;
+    background: rgba(100, 255, 218, 0.1);
+}
+
+.mobile-bottom-nav .nav-icon {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.mobile-bottom-nav .nav-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1;
+}
+
+/* Pulse animation for active item */
+.mobile-bottom-nav .nav-item.active .nav-icon {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Safe area support for modern mobile devices */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .mobile-bottom-nav {
+        padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+    }
+}
